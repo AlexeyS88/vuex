@@ -1,6 +1,5 @@
-import { createStore } from 'vuex'
-
-export default createStore({
+export default {
+    namespaced: true,
     state() {
         return {
             counter: 1
@@ -28,8 +27,13 @@ export default createStore({
             // }
             return state.counter
         },
-        doubleCounter(_, getters) {
+        doubleCounter(state, getters, rootState, rootGetters) {
+            // console.log('state', state)
+            // console.log('getters', getters)
+            // console.log('rootState', rootState)
+            // console.log('rootGetters', rootGetters)
             return getters.counter * 2
         }
     }
-})
+
+}
